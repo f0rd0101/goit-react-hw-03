@@ -1,0 +1,19 @@
+.contact_forms{
+    display: flex;
+    flex-direction: column;
+
+}
+.divcontactform{
+   display: flex;
+   border: 1px solid black;
+   max-width: fit-content;
+   border-radius: 5px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   padding-right: 5px;
+   padding-left: 5px;
+
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}

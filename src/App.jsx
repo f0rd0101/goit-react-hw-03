@@ -6,12 +6,15 @@ import './App.css'
 
 
 function App() {
-  <div>
+  return(
+    <div>
     <ContactForm/>
     <SearchBox/>
     <ContactList/>
 
-  </div>
+   </div>
+  )
+
  
 }
 
