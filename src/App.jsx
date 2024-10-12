@@ -1,10 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import ContactForm from './components/ContactForm/ContactForm'
+import SearchBox from './components/SearchBox/SearchBox'
+import ContactList from './components/ContactList/ContactList'
+import { useEffect, useState } from 'react'
 import './App.css'
 
+
 function App() {
-  
+  <div>
+    <ContactForm/>
+    <SearchBox/>
+    <ContactList/>
+
+  </div>
+ 
 }
 
 export default App
