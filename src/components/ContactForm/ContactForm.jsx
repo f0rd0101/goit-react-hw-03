@@ -5,13 +5,14 @@ const ContactForm = () => {
   return (
     <div className={s.divcontactform}>
       <form  className={s.contact_forms}>
-        <label>
-            <span>Name</span>
+        <label >
+            <span className={s.contactformspan}>Name</span>
             <input type="text" />
         </label>
         <label>
-          <span>Number</span>
-          <input type="number"/>
+          <span className={s.contactformspan}>Number</span>
+          <input type="text"
+  inputmode="numeric"/>
         </label>
 
       </form>
