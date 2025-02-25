@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import ContactForm from './components/ContactForm/ContactForm.jsx'
 import SearchBox from './components/SearchBox/SearchBox'
 import ContactList from './components/ContactList/ContactList'
+import './App.css'
 
 
 const people = [

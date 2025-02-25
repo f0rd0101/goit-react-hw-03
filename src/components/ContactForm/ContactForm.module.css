@@ -1,10 +1,10 @@
-.form_container{
-    width: 300px;
-    border: 1px solid white;
-    
-}
+
 .form_button{
     display: flex;
     justify-content: center;
 
+}
+.form_container{
+    display: flex;
+    justify-content: center;
 }

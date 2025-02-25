@@ -1,5 +1,7 @@
 .search_div{
-    border: 1px solid white;
+   
     width: 300px;
+    display: flex;
+    justify-content: center;
 
 }

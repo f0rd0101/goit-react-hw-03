@@ -3,7 +3,7 @@ import s from '../ContactList/ContactList.module.css'
 import Contact from '../Contact/Contact'
 const ContactList = ({people}) => {
   return (
-    <div>
+    <div className={s.contact_list_div}>
       <ul>
         
         {
