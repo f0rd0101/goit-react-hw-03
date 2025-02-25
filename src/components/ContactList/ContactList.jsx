@@ -5,12 +5,16 @@ const ContactList = ({people}) => {
   return (
     <div>
       <ul>
+        
         {
          people.map((person)=>{
-          return <Contact id = {person.id} name ={person.name} number ={person.number}/>
+          return <li className={s.person_item} key = {person.id}> <Contact name ={person.name} number ={person.number}/> </li>
+          
+      
          })
 
         }
+      
       </ul>
     </div>
   )
