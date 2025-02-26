@@ -18,7 +18,14 @@ const people = [
 
 function App() {
   const [contacts, setContacts] = useState(people)
-  
+  const addContact = (name, number) => {
+    const newContact = {
+      id: Date.now().toString(), // Генерация уникального ID
+      name,
+      number,
+    };
+    setContacts((prev) => [...prev, newContact]);
+  };
   
   const handleDeleteContacts = (contactId) => {
     setContacts((prev) => prev.filter((person) => person.id !== contactId));
@@ -28,7 +35,7 @@ function App() {
     <>
    <div>
   <h1>Phonebook</h1>
-  <ContactForm />
+  <ContactForm addContact={addContact}/>
   <SearchBox />
   <ContactList people = {contacts} handleDeleteContacts= {handleDeleteContacts} />
 </div>
