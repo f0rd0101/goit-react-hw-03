@@ -14,16 +14,23 @@ const people = [
 ]
 
 
-function App() {
-  
 
+
+function App() {
+  const [contacts, setContacts] = useState(people)
+  
+  
+  const handleDeleteContacts = (contactId) => {
+    setContacts((prev) => prev.filter((person) => person.id !== contactId));
+  };
+  
   return (
     <>
    <div>
   <h1>Phonebook</h1>
   <ContactForm />
   <SearchBox />
-  <ContactList people = {people} />
+  <ContactList people = {contacts} handleDeleteContacts= {handleDeleteContacts} />
 </div>
 </>
     
