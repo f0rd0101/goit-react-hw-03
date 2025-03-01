@@ -1,41 +1,61 @@
 import React, { useState } from "react"; 
 import s from "../ContactForm/ContactForm.module.css";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useId } from 'react';
+
+import * as Yup from "yup";
+
+const validationRules = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required!"),
+  phone: Yup.string()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required!"),
+});
 
 const ContactForm = ({ addContact }) => {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name || !number) return;
-
-    addContact(name, number);
-    setName(""); 
-    setNumber("");
-  };
+  const nameFieldId = useId();
+  const phoneFieldId = useId();
 
   return (
     <div className={s.form_container}>
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <br />
-        <input 
-          type="text" 
-          value={name} 
-          onChange={(e) => setName(e.target.value)} 
-        />
-        <br/>
-        <label>Number</label>
-        <br />
-        <input 
-          type="text" 
-          value={number} 
-          onChange={(e) => setNumber(e.target.value)} 
-        />
-        <div className={s.form_button}>
-          <button type="submit">Add contact</button>
-        </div>
-      </form>
+      <Formik
+        initialValues={{
+          name: "",
+          phone: "",
+        }}
+        validationSchema={validationRules}
+        onSubmit={(values, { resetForm }) => {
+          addContact(values.name, values.phone);
+          resetForm(); 
+        }}
+      >
+        <Form>
+          <label htmlFor={nameFieldId}>Name</label>
+          <br />
+          <Field
+            type="text"
+            name="name"
+            id={nameFieldId}
+          />
+          <ErrorMessage name="name" component="div" className={s.error} />
+          <br />
+          <label htmlFor={phoneFieldId}>Number</label>
+          <br />
+          <Field
+            type="text"
+            name="phone"
+            id={phoneFieldId}
+          />
+          <ErrorMessage name="phone" component="div" className={s.error} />
+          <div className={s.form_button}>
+            <button type="submit">Add contact</button>
+          </div>
+        </Form>
+      </Formik>
     </div>
   );
 };
